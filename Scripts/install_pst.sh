@@ -21,11 +21,12 @@ if pkg_installed sddm; then
 
     if [ ! -f /etc/sddm.conf.d/kde_settings.t2.bkp ]; then
         echo -e "\033[0;32m[DISPLAYMANAGER]\033[0m configuring sddm..."
-        echo -e "Select sddm theme:\n[1] Candy\n[2] Corners"
+        echo -e "Select sddm theme:\n[1] Candy\n[2] Chilly\n[3] Corners"
         read -p " :: Enter option number : " sddmopt
 
         case $sddmopt in
         1) sddmtheme="Candy" ;;
+        2) sddmtheme="Chilly" ;;
         *) sddmtheme="Corners" ;;
         esac
 
@@ -69,10 +70,10 @@ if ! pkg_installed flatpak; then
     fpkopt=${promptIn,,}
 
     if [ "${fpkopt}" = "y" ]; then
-        echo -e "\033[0;32m[FLATPAK]\033[0m intalling flatpaks..."
+        echo -e "\033[0;32m[FLATPAK]\033[0m installing flatpaks..."
         "${scrDir}/.extra/install_fpk.sh"
     else
-        echo -e "\033[0;33m[SKIP]\033[0m intalling flatpaks..."
+        echo -e "\033[0;33m[SKIP]\033[0m installing flatpaks..."
     fi
 
 else
